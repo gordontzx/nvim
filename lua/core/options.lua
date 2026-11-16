@@ -31,6 +31,18 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 -- Terminal
 vim.opt.termguicolors = true
 
+-- Terminal windows: no whitespace markers or sign column (splits inherit the
+-- global settings above; floating windows already turn these off)
+vim.api.nvim_create_autocmd({ "TermOpen", "BufWinEnter" }, {
+  group = vim.api.nvim_create_augroup("terminal-window", { clear = true }),
+  callback = function(ev)
+    if vim.bo[ev.buf].buftype == "terminal" then
+      vim.opt_local.list = false
+      vim.opt_local.signcolumn = "no"
+    end
+  end,
+})
+
 -- Decrease update time
 vim.opt.updatetime = 300
 

@@ -25,6 +25,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- Leave terminal mode (built-in <C-\><C-n> is blocked by toggleterm's <C-\> mapping)
+vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil --float .<CR>", { desc = "Open working directory (Oil)" })
 
