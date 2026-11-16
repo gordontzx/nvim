@@ -34,7 +34,6 @@ vim.keymap.set("n", "-", "<CMD>Oil --float .<CR>", { desc = "Open working direct
 -- Fix Ctrl-c not showing diagnostics
 vim.keymap.set("i", "<C-c>", function()
   vim.cmd("stopinsert")
-  -- vim.diagnostic.enable(true)
 end)
 
 -- Set <C-c> to do the same thing as <ESC>
