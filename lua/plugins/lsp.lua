@@ -50,6 +50,10 @@ return {
       { "j-hui/fidget.nvim", opts = {} },
     },
     config = function()
+      -- Show LSP document colors (e.g. CSS hex codes) as a swatch before the value
+      -- instead of highlighting the text. Styles: "background" (default), "foreground", "virtual"
+      vim.lsp.document_color.enable(true, nil, { style = "virtual" })
+
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
         callback = function(ev)
