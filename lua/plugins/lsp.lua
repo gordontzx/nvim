@@ -25,6 +25,7 @@ return {
         "cssls",
         "ts_ls",
         "emmet_language_server",
+        "postgres_lsp", -- sql; needs postgres-language-server.jsonc in the project
       },
       -- stylua is installed for conform; don't also run it as a language server
       automatic_enable = { exclude = { "stylua" } },
